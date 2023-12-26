@@ -1,4 +1,4 @@
-package de.padidas.secretsantashare
+package de.padidas.secretsantashare.idea
 
 import org.springframework.data.annotation.CreatedDate
 import org.springframework.data.annotation.Id

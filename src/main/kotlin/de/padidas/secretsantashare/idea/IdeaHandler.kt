@@ -1,6 +1,5 @@
 package de.padidas.secretsantashare.idea
 
-import kotlinx.coroutines.flow.firstOrNull
 import org.springframework.stereotype.Component
 import org.springframework.web.reactive.function.server.*
 import org.springframework.web.reactive.function.server.ServerResponse.*
@@ -12,7 +11,7 @@ class IdeaHandler(val ideaRepository: IdeaRepository) {
         val id = req.pathVariable("recipientId")
         val foundIdeas = ideaRepository.findByRecipient(id)
 
-        return if (foundIdeas.firstOrNull() != null) ok().bodyAndAwait(foundIdeas)
+        return if (foundIdeas.firstOrNull() != null) ok().bodyValueAndAwait(foundIdeas)
         else noContent().buildAndAwait()
     }
 

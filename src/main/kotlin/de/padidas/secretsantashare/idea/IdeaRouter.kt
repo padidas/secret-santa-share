@@ -9,8 +9,8 @@ class IdeaRouter {
     @Bean
     fun http(ideaHandler: IdeaHandler) = coRouter {
         "/ideas".nest {
-            POST("", ideaHandler::addIdea)
             GET("{recipientId}", ideaHandler::getIdeas)
+            POST("", ideaHandler::addIdea)
             DELETE("{id}", ideaHandler::removeIdea)
         }
     }
